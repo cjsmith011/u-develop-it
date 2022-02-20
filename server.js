@@ -19,9 +19,36 @@ const db = mysql.createConnection(
 );
 
 
-db.query('SELECT * FROM candidates', (err, rows) => {
-    console.log(rows);
-});
+// db.query('SELECT * FROM candidates', (err, rows) => {
+//     console.log(rows);
+// });
+
+//get a single candidate by id
+// db.query(`SELECT * FROM candidates WHERE id = 14`, (err, row) => {
+//     if (err) {
+//     console.log(err);
+//     }
+//     console.log(row);
+// });
+
+//delete an entry
+// db.query(`DELETE FROM candidates WHERE id = ?`, 14, (err, result) => {
+//     if (err) {
+//         console.log(err);
+//     }
+//     console.log(result);
+// });
+
+//create an entry
+const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected)
+VALUES (?,?,?,?)`;
+const params = [1, 'Ronald', 'Smith', 1];
+// db.query(sql, params, (err, result) => {
+//     if (err) {
+//         console.log(err);
+//     }
+//     console.log(result);
+// });
 
 //default response if there is an issue, this has to be last or it will override other app.gets
 app.use((req, res) => {
