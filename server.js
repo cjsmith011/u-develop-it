@@ -118,7 +118,7 @@ app.get('/api/party/:id', (req, res) => {
         });
     });
 });
-//deleta a party
+//delete a party
 app.delete('/api/party/:id', (req, res) => {
     const sql = `DELETE FROM parties WHERE id = ?`;
   const params = [req.params.id];
